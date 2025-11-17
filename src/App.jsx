@@ -13,7 +13,7 @@ import Footer from './components/Footer'
 
 function App() {
   return (
-    <div className="min-h-screen bg-[#0b0c10] text-gray-100 relative">
+    <div className="min-h-screen text-gray-100 relative bg-[radial-gradient(1200px_600px_at_80%_-200px,rgba(255,137,100,0.12),transparent_60%),radial-gradient(900px_500px_at_-200px_200px,rgba(255,214,102,0.10),transparent_60%),#0e0a10]">
       <Gradients />
       <Navbar />
       <div className="relative">
@@ -21,7 +21,9 @@ function App() {
         <Hero />
       </div>
       <div id="categories">
-        <SearchFilters />
+        <div id="search">
+          <SearchFilters />
+        </div>
         <CategoryShowcase />
       </div>
       <FeaturedGrid />

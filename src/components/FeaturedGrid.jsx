@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import ImageWithFallback from './ImageWithFallback'
 
 const items = [
   { id: 1, title: 'Sony A7 III', desc: 'Full-frame mirrorless', price: 45, img: 'https://images.unsplash.com/photo-1519183071298-a2962be96f83?q=80&w=1200&auto=format&fit=crop' },
@@ -16,8 +17,13 @@ export default function FeaturedGrid() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {items.map((it) => (
             <motion.div key={it.id} whileHover={{ y: -4 }} className="group rounded-2xl overflow-hidden bg-white shadow-md hover:shadow-xl transition-all">
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <img src={it.img} alt={it.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <div className="relative aspect-[4/3] overflow-hidden bg-neutral-100">
+                <ImageWithFallback
+                  src={it.img}
+                  alt={it.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  fallbackText={it.title}
+                />
               </div>
               <div className="p-4">
                 <h4 className="font-semibold text-gray-900">{it.title}</h4>

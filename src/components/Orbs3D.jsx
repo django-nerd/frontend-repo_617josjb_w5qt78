@@ -20,11 +20,12 @@ export default function Orbs3D() {
     window.addEventListener('resize', onResize)
     resize()
 
-    const orbs = Array.from({ length: 8 }).map((_, i) => ({
+    // Warmer palette hues ~ 10-60
+    const orbs = Array.from({ length: 8 }).map(() => ({
       x: Math.random() * 600,
       y: Math.random() * 300,
       r: 40 + Math.random() * 60,
-      hue: 200 + Math.random() * 120,
+      hue: 10 + Math.random() * 50,
       vx: (Math.random() - 0.5) * 0.6,
       vy: (Math.random() - 0.5) * 0.6,
     }))
@@ -42,7 +43,7 @@ export default function Orbs3D() {
 
         const grad = ctx.createRadialGradient(o.x, o.y, 0, o.x, o.y, o.r)
         grad.addColorStop(0, `hsla(${o.hue},85%,65%,0.55)`)
-        grad.addColorStop(1, `hsla(${o.hue + 30},85%,55%,0.05)`)
+        grad.addColorStop(1, `hsla(${o.hue + 20},85%,55%,0.06)`)
 
         ctx.fillStyle = grad
         ctx.beginPath()
